@@ -1,5 +1,7 @@
 // #region Variables
 let logs = 0
+let clickMultiplier = 0
+let autoMultiplier = 0
 
 let clickUpgrades = [
     {
@@ -10,7 +12,7 @@ let clickUpgrades = [
     },
     {
         name: 'super-axe',
-        price: 2,
+        price: 5,
         qty: 1,
         multiplier: 5
     }
@@ -34,7 +36,7 @@ let autoUpgrades = [
 // #region create functions
 
 function chopTree() {
-    logs++
+    logs += 1 + clickMultiplier + autoMultiplier
     console.log(logs);
     updateLogs()
 }
@@ -42,6 +44,36 @@ function chopTree() {
 function updateLogs() {
     let logElem = document.getElementById('log-count')
     logElem.innerText = logs
+
+}
+// NOTE Obsolete function, refactored for reusability 
+// function purchaseAxe() {
+//     if (logs >= clickUpgrades[0].price) {
+//         logs -= clickUpgrades[0].price
+//         clickMultiplier += clickUpgrades[0].multiplier
+//     } else {
+//         window.alert('You need more logs!')
+//     }
+//     updateLogs()
+//     updateClickUpgradeAmount()
+// }
+
+function purchaseClickUpgrade(name) {
+    let foundUpgrade = clickUpgrades.find(upgrade => upgrade.name == name)
+    if (logs >= foundUpgrade.price) {
+        logs -= foundUpgrade.price
+        clickMultiplier += foundUpgrade.multiplier
+        foundUpgrade.qty++
+    } else {
+        window.alert('You need more logs!')
+    }
+    updateLogs()
+    updateClickUpgradeAmount()
+}
+
+function updateClickUpgradeAmount() {
+    let clickUpgradeElem = document.getElementById('click-upgrade-amount')
+    clickUpgradeElem.innerText = clickMultiplier
 
 }
 
