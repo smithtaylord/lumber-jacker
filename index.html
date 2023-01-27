@@ -41,7 +41,10 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="text-success text-center">LUMBER-JACKER</h1>
+                    <div class="header-text">
+                        <h1 class="text-center text-light"> <i class="mdi mdi-axe"></i> LUMBER-JACKER <i
+                                class="mdi mdi-axe"></i></h1>
+                    </div>
                 </div>
             </div>
         </div>
@@ -52,7 +55,7 @@
             <div class="row">
                 <div class="col-12 d-flex justify-content-center">
                     <img class="tree-img"
-                        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7e93ef39-d5af-4b15-9347-e2deeb68f5b8/d65ctod-731b7ba5-e2fc-4e74-9f7b-403d5450d253.png/v1/fill/w_1024,h_1402,strp/tree_1__png_with_transparency__by_bupaje_d65ctod-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTQwMiIsInBhdGgiOiJcL2ZcLzdlOTNlZjM5LWQ1YWYtNGIxNS05MzQ3LWUyZGVlYjY4ZjViOFwvZDY1Y3RvZC03MzFiN2JhNS1lMmZjLTRlNzQtOWY3Yi00MDNkNTQ1MGQyNTMucG5nIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.RRFKTAMjyR1PawL3O_CMRUO5RJR2SayR2z3H69pzMuY"
+                        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b9e405d8-7e26-4ce3-a7d8-dd388ca2b4dc/d6js9qd-ee0ed16b-dbf7-49d8-b60d-029f9d03bc55.png/v1/fill/w_1024,h_768,strp/png_tree_4r_by_moonglowlilly_d6js9qd-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzY4IiwicGF0aCI6IlwvZlwvYjllNDA1ZDgtN2UyNi00Y2UzLWE3ZDgtZGQzODhjYTJiNGRjXC9kNmpzOXFkLWVlMGVkMTZiLWRiZjctNDlkOC1iNjBkLTAyOWY5ZDAzYmM1NS5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.PF9aTPy1idlvy9-MOmyZOGRuFfpUMSalUmKFPBELBn4"
                         alt="tree-img" onclick="chopTree()">
                 </div>
             </div>
@@ -61,21 +64,31 @@
         <div class="container-fluid py-5">
             <div class="row align-items-end">
                 <div class="col-md-2 offset-2">
-                    <div class="d-flex border rounded bg-warning justify-content-around">
-                        <h4>Click Upgrade</h4>
-                        <h4>+ <span id="click-upgrade-amount">0</span></h4>
+                    <div class="border rounded bg-success text-light py-2">
+                        <div class="d-flex  justify-content-around">
+                            <h4>Click Upgrade</h4>
+                            <h4>+ <span id="click-upgrade-amount">0</span> </h4>
+                        </div>
+                        <div class="text-center">
+                            <small>(per click)</small>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="d-flex border rounded bg-light justify-content-around py-3">
-                        <h3><i class="mdi mdi-pine-tree"></i></h3>
-                        <h3 id="log-count">100</h3>
+                    <div class="d-flex border rounded bg-success text-light justify-content-around py-4">
+                        <h1>🪵</h1>
+                        <h1 id="log-count">100</h3>
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <div class="d-flex border rounded bg-warning justify-content-around">
-                        <h4>Auto Upgrade</h4>
-                        <h4>+ <span id="auto-upgrade-amount">0</span></h4>
+                    <div class="border rounded bg-success text-light py-2">
+                        <div class="d-flex justify-content-around">
+                            <h4>Auto Upgrade</h4>
+                            <h4>+ <span id="auto-upgrade-amount">0</span></h4>
+                        </div>
+                        <div class="text-center">
+                            <small>every 3 seconds</small>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,14 +97,14 @@
         <!-- STUB Upgrades -->
         <div class="container">
             <div class="row">
-                <div class="col-12 bg-warning">
+                <div class="col-12 upgrade-zone">
                     <div class="row">
                         <div class="col-6">
-                            <div class="d-flex flex-column">
-                                <h5>Click Upgrades</h5>
-                                <div id="click-upgrade-buttons">
-                                    <!-- TEMPLATE FOR CLICK UPGRADES -->
-                                    <!-- <div class="d-flex justify-content-around">
+                            <div class="d-flex flex-column p-3 text-center">
+                                <h3>Click Upgrades</h5>
+                                    <div id="click-upgrade-buttons">
+                                        <!-- TEMPLATE FOR CLICK UPGRADES -->
+                                        <!-- <div class="d-flex justify-content-around">
                                         <span>0 / 5 Upgrades</span>
                                         <button class="btn btn-success" onclick="purchaseClickUpgrade('axe')">Buy
                                             Axe 3 Logs</button><span>+2</span>
@@ -101,12 +114,12 @@
                                             a
                                             bigger Axe</button> <span>+5</span>
                                     </div> -->
-                                </div>
+                                    </div>
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="d-flex flex-column">
-                                <h5>Auto Upgrades</h5>
+                            <div class="d-flex flex-column p-3 text-center">
+                                <h3>Auto Upgrades</h3>
                                 <div id="auto-upgrade-buttons">
                                     <!-- <div class="d-flex justify-content-around">
                                         <button class="btn btn-danger" onclick="purchaseAutoUpgrades('buddy')">Call a
@@ -128,11 +141,6 @@
 
     </main>
     <footer class="container-fluid text-center text-success">
-        <div class="row">
-            <div class="col-12">
-                <h6>Made with <i class="mdi mdi-heart"></i> and <i class="mdi mdi-axe"></i></h6>
-            </div>
-        </div>
     </footer>
 
     <script src="app.js"></script>

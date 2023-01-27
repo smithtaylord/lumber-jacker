@@ -1,6 +1,6 @@
 // #region Variables
 let logs = 0
-let clickMultiplier = 0
+let clickMultiplier = 1
 let autoChopAmount = 0
 
 let clickUpgrades = [
@@ -38,7 +38,7 @@ let autoUpgrades = [
 // #region create functions
 
 function chopTree() {
-    logs += 1 + clickMultiplier
+    logs += clickMultiplier
     console.log(logs);
     updateLogs()
 }
@@ -68,7 +68,7 @@ function purchaseClickUpgrade(name) {
         purchasedClickUpgrade.qty++
         purchasedClickUpgrade.price += (purchasedClickUpgrade.multiplier * purchasedClickUpgrade.qty)
     } else {
-        window.alert('You need more logs!')
+        window.alert('You need more 🪵! Get back to choppin!!')
     }
     updateLogs()
     updateClickUpgradeAmount()
@@ -85,11 +85,11 @@ function drawClickUpgradeButtons() {
     let template = ''
     clickUpgrades.forEach(upgrade => {
         template += `
-        <div class="d-flex justify-content-between py-3">
-        <h4>${upgrade.qty} ${upgrade.name}s called </h4>
+        <div class="d-flex justify-content-around py-3 my-3 border rounded">
+        <h4>${upgrade.qty} ${upgrade.name}s purchased </h4>
         <div class="d-flex justify-content-end">
-        <button class="btn btn-success" onclick="purchaseAutoUpgrade('${upgrade.name}')">Buy
-        ${upgrade.name} <i class="mdi mdi-pine-tree"></i> ${upgrade.price}</button>
+        <button class="btn btn-warning" onclick="purchaseClickUpgrade('${upgrade.name}')">Buy
+        ${upgrade.name} 🪵${upgrade.price}</button>
         <h4>+${upgrade.multiplier}</h4>
         </div>
         </div>
@@ -108,7 +108,7 @@ function purchaseAutoUpgrade(name) {
         purchasedAutoUpgrade.isPurchased = true
         autoChopAmount += purchasedAutoUpgrade.multiplier
     } else {
-        window.alert('You need more logs!')
+        window.alert('You need more 🪵! Get back to choppin!!')
     }
     console.log(purchasedAutoUpgrade);
     updateAutoUpgradeAmount()
@@ -132,11 +132,11 @@ function drawAutoUpgradeButtons() {
     let template = ''
     autoUpgrades.forEach(upgrade => {
         template += `
-        <div class="d-flex justify-content-between py-3">
+        <div class="d-flex justify-content-around py-3 my-3 border rounded">
         <h4>${upgrade.qty} ${upgrade.name}s called </h4>
         <div class="d-flex justify-content-end">
         <button class="btn btn-danger" onclick="purchaseAutoUpgrade('${upgrade.name}')">Call a
-        ${upgrade.name} <i class="mdi mdi-pine-tree"></i> ${upgrade.price}</button>
+        ${upgrade.name} 🪵 ${upgrade.price}</button>
         <h4>+${upgrade.multiplier}</h4>
         </div>
         </div>
@@ -152,6 +152,8 @@ function drawAutoUpgradeButtons() {
 
 // #region function invocation
 updateLogs()
+updateAutoUpgradeAmount()
+updateClickUpgradeAmount()
 drawClickUpgradeButtons()
 drawAutoUpgradeButtons()
 setInterval(autoCollectLogs, 3000)
