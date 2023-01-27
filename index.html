@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"
+        defer></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.1.96/css/materialdesignicons.min.css"
+        integrity="sha512-NaaXI5f4rdmlThv3ZAVS44U9yNWJaUYWzPhvlg5SC7nMRvQYV9suauRK3gVbxh7qjE33ApTPD+hkOW78VSHyeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Lumber-Jacker</title>
+</head>
+<style>
+    body.debug .container,
+    body.debug .container-fluid {
+        outline: 2px double blue;
+        outline-offset: -2px;
+    }
+
+    body.debug .row {
+        outline: 2px dashed red;
+        outline-offset: -2px;
+    }
+
+    body.debug [class*="col-"] {
+        outline: 2px dotted forestgreen;
+        outline-offset: -3px;
+    }
+</style>
+
+
+<body class="debug">
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-success text-center">LUMBER-JACKER</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- STUB Tree Img -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <img class="tree-img"
+                        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7e93ef39-d5af-4b15-9347-e2deeb68f5b8/d65ctod-731b7ba5-e2fc-4e74-9f7b-403d5450d253.png/v1/fill/w_1024,h_1402,strp/tree_1__png_with_transparency__by_bupaje_d65ctod-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTQwMiIsInBhdGgiOiJcL2ZcLzdlOTNlZjM5LWQ1YWYtNGIxNS05MzQ3LWUyZGVlYjY4ZjViOFwvZDY1Y3RvZC03MzFiN2JhNS1lMmZjLTRlNzQtOWY3Yi00MDNkNTQ1MGQyNTMucG5nIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.RRFKTAMjyR1PawL3O_CMRUO5RJR2SayR2z3H69pzMuY"
+                        alt="tree-img" onclick="chopTree()">
+                </div>
+            </div>
+        </div>
+        <!-- STUB Log Count Stats -->
+        <div class="container-fluid py-5">
+            <div class="row align-items-end">
+                <div class="col-md-2 offset-2">
+                    <div class="d-flex border rounded bg-warning justify-content-around">
+                        <h4>Click Upgrade</h4>
+                        <h4>+ 2</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="d-flex border rounded bg-light justify-content-around py-3">
+                        <h3>LOGS</h3>
+                        <h3>100</h3>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="d-flex border rounded bg-warning justify-content-around">
+                        <h4>Auto Upgrade</h4>
+                        <h4>+ 2</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STUB Upgrades -->
+
+        <!-- STUB Upgrade Stats -->
+
+
+        Main Content Here
+    </main>
+    <footer>Made with 💖</footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+/* Root */
+
+/* Element Selectors */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: brown;
+}
+
+main {
+    background-color: green;
+    flex-grow: 1;
+}
+
+footer {
+    background-color: brown;
+}
+
+/* Class Selectors */
+
+.tree-img {
+    width: auto;
+    height: 50vh;
+}
