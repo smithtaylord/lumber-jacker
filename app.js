@@ -19,14 +19,14 @@ let clickUpgrades = [
 ]
 let autoUpgrades = [
     {
-        name: 'Call a Buddy',
+        name: 'Lumberjack',
         price: 10,
         qty: 1,
         multiplier: 3,
         isPurchased: false
     },
     {
-        name: 'Call a Crew',
+        name: 'Crew',
         price: 100,
         qty: 1,
         multiplier: 10,
@@ -66,7 +66,7 @@ function purchaseClickUpgrade(name) {
         logs -= purchasedClickUpgrade.price
         clickMultiplier += purchasedClickUpgrade.multiplier
         purchasedClickUpgrade.qty++
-        purchasedClickUpgrade.price += 5
+        purchasedClickUpgrade.price += (purchasedClickUpgrade.multiplier * purchasedClickUpgrade.qty)
     } else {
         window.alert('You need more logs!')
     }
@@ -85,10 +85,13 @@ function drawClickUpgradeButtons() {
     let template = ''
     clickUpgrades.forEach(upgrade => {
         template += `
-        <div class="d-flex justify-content-around py-3">
-        <h4>${upgrade.qty} / 5 Upgrades</h4>
-        <button class="btn btn-success" onclick="purchaseClickUpgrade('${upgrade.name}')">Buy
-        ${upgrade.name} <i class="mdi mdi-pine-tree"></i> ${upgrade.price}</button><h4>+${upgrade.multiplier}</h4>
+        <div class="d-flex justify-content-between py-3">
+        <h4>${upgrade.qty} ${upgrade.name}s called </h4>
+        <div class="d-flex justify-content-end">
+        <button class="btn btn-success" onclick="purchaseAutoUpgrade('${upgrade.name}')">Buy
+        ${upgrade.name} <i class="mdi mdi-pine-tree"></i> ${upgrade.price}</button>
+        <h4>+${upgrade.multiplier}</h4>
+        </div>
         </div>
 
     `
@@ -101,7 +104,7 @@ function purchaseAutoUpgrade(name) {
     if (logs >= purchasedAutoUpgrade.price) {
         logs -= purchasedAutoUpgrade.price
         purchasedAutoUpgrade.qty++
-        purchasedAutoUpgrade.price += 5
+        purchasedAutoUpgrade.price += (purchasedAutoUpgrade.multiplier * purchasedAutoUpgrade.qty)
         purchasedAutoUpgrade.isPurchased = true
         autoChopAmount += purchasedAutoUpgrade.multiplier
     } else {
@@ -129,10 +132,13 @@ function drawAutoUpgradeButtons() {
     let template = ''
     autoUpgrades.forEach(upgrade => {
         template += `
-        <div class="d-flex justify-content-around py-3">
-        <h4>${upgrade.qty} / 5 Upgrades</h4>
-        <button class="btn btn-success" onclick="purchaseAutoUpgrade('${upgrade.name}')">Buy
-        Axe <i class="mdi mdi-pine-tree"></i> ${upgrade.price}</button><h4>+${upgrade.multiplier}</h4>
+        <div class="d-flex justify-content-between py-3">
+        <h4>${upgrade.qty} ${upgrade.name}s called </h4>
+        <div class="d-flex justify-content-end">
+        <button class="btn btn-danger" onclick="purchaseAutoUpgrade('${upgrade.name}')">Call a
+        ${upgrade.name} <i class="mdi mdi-pine-tree"></i> ${upgrade.price}</button>
+        <h4>+${upgrade.multiplier}</h4>
+        </div>
         </div>
 `
         updateButtonElem.innerHTML = template
