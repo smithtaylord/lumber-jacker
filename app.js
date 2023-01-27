@@ -7,13 +7,13 @@ let clickUpgrades = [
     {
         name: 'axe',
         price: 1,
-        qty: 1,
-        multiplier: 2
+        qty: 0,
+        multiplier: 1
     },
     {
         name: 'super-axe',
         price: 5,
-        qty: 1,
+        qty: 0,
         multiplier: 5
     }
 ]
@@ -64,11 +64,13 @@ function purchaseClickUpgrade(name) {
         logs -= foundUpgrade.price
         clickMultiplier += foundUpgrade.multiplier
         foundUpgrade.qty++
+        foundUpgrade.price += 5
     } else {
         window.alert('You need more logs!')
     }
     updateLogs()
     updateClickUpgradeAmount()
+    drawClickUpgradeButtons()
 }
 
 function updateClickUpgradeAmount() {
@@ -76,12 +78,27 @@ function updateClickUpgradeAmount() {
     clickUpgradeElem.innerText = clickMultiplier
 
 }
+function drawClickUpgradeButtons() {
+    let updateButtonElem = document.getElementById('click-upgrade-buttons')
+    let template = ''
+    clickUpgrades.forEach(upgrade => {
+        template += `
+        <div class="d-flex justify-content-around py-3">
+        <h4>${upgrade.qty} / 5 Upgrades</h4>
+        <button class="btn btn-success" onclick="purchaseClickUpgrade('${upgrade.name}')">Buy
+        Axe <i class="mdi mdi-pine-tree"></i> ${upgrade.price}</button><h4>+${upgrade.multiplier}</h4>
+        </div>
+
+    `
+    });
+    updateButtonElem.innerHTML = template
+}
 
 
 // #endregion
 
 // #region function invocation
 updateLogs()
-
+drawClickUpgradeButtons()
 // #endregion
 

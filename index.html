@@ -68,7 +68,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="d-flex border rounded bg-light justify-content-around py-3">
-                        <h3>LOGS</h3>
+                        <h3><i class="mdi mdi-pine-tree"></i></h3>
                         <h3 id="log-count">100</h3>
                     </div>
                 </div>
@@ -82,20 +82,25 @@
         </div>
 
         <!-- STUB Upgrades -->
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
-                <div class="offset-1 col-5 bg-warning">
+                <div class="col-12 bg-warning">
                     <div class="row">
                         <div class="col-6">
                             <div class="d-flex flex-column">
                                 <h5>Click Upgrades</h5>
-                                <div class="d-flex justify-content-around">
-                                    <button class="btn btn-success" onclick="purchaseClickUpgrade('axe')">Buy
-                                        Axe</button><span>+2</span>
-                                </div>
-                                <div class="d-flex justify-content-around">
-                                    <button class="btn btn-success" onclick="purchaseClickUpgrade('super-axe')">Buy a
-                                        bigger Axe</button> <span>+5</span>
+                                <div id="click-upgrade-buttons">
+                                    <!-- TEMPLATE FOR CLICK UPGRADES -->
+                                    <!-- <div class="d-flex justify-content-around">
+                                        <span>0 / 5 Upgrades</span>
+                                        <button class="btn btn-success" onclick="purchaseClickUpgrade('axe')">Buy
+                                            Axe 3 Logs</button><span>+2</span>
+                                    </div>
+                                    <div class="d-flex justify-content-around">
+                                        <button class="btn btn-success" onclick="purchaseClickUpgrade('super-axe')">Buy
+                                            a
+                                            bigger Axe</button> <span>+5</span>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -103,7 +108,8 @@
                             <div class="d-flex flex-column">
                                 <h5>Auto Upgrades</h5>
                                 <div class="d-flex justify-content-around">
-                                    <button class="btn btn-danger">Call a Buddy</button><span>+2</span>
+                                    <button class="btn btn-danger">Call a Buddy <i
+                                            class="mdi mdi-pine-tree"></i></button><span>+2</span>
                                 </div>
                                 <div class="d-flex justify-content-around">
                                     <button class="btn btn-danger">Hire a Team</button> <span>+5</span>
@@ -112,38 +118,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- STUB Upgrade Stats -->
-                <div class="col-5 bg-warning">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="d-flex flex-column">
-                                <h5>Click Upgrades</h5>
-                                <div class="d-flex justify-content-around">
-                                    <h6>How many Axes did you Buy?</h6>
-                                    <h6>2</h6>
-                                </div>
-                                <div class="d-flex justify-content-around">
-                                    <h6>How many BIG Axes did you Buy?</h6>
-                                    <h6>2</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="d-flex flex-column">
-                                <h5>Auto Upgrades</h5>
-                                <div class="d-flex justify-content-around">
-                                    <h6>How many Axes did you Buy?</h6>
-                                    <h6>2</h6>
-                                </div>
-                                <div class="d-flex justify-content-around">
-                                    <h6>How many BIG Axes did you Buy?</h6>
-                                    <h6>2</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
+        </div>
         </div>
 
 
