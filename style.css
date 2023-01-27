@@ -33,3 +33,8 @@ header {
     background-size: cover;
     color: whitesmoke;
 }
+
+.pancake {
+    font-size: 60pt;
+    cursor: grab;
+}

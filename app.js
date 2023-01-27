@@ -77,6 +77,7 @@ function purchaseClickUpgrade(name) {
             imageAlt: 'Lumber Jack Img',
         })
     }
+    // commented out window alert, replaced with sweet alert
     // } else {
     //     window.alert('You need more 🪵! Get back to choppin!!')
     // }
@@ -96,7 +97,7 @@ function drawClickUpgradeButtons() {
     clickUpgrades.forEach(upgrade => {
         template += `
         <div class="d-flex justify-content-around py-3 my-3 border rounded">
-        <h4>${upgrade.qty} ${upgrade.name}s purchased </h4>
+        <h5>${upgrade.qty} ${upgrade.name}s purchased </h5>
         <div class="d-flex justify-content-end">
         <button class="btn btn-warning" onclick="purchaseClickUpgrade('${upgrade.name}')">Buy
         ${upgrade.name} 🪵${upgrade.price}</button>
@@ -127,7 +128,7 @@ function purchaseAutoUpgrade(name) {
             imageAlt: 'Lumber Jack Img',
         })
     }
-
+    // commented out window alert and added sweet alert. 
     // } else {
     //     window.alert('You need more 🪵! Get back to choppin!!')
     // }
@@ -154,7 +155,7 @@ function drawAutoUpgradeButtons() {
     autoUpgrades.forEach(upgrade => {
         template += `
         <div class="d-flex justify-content-around py-3 my-3 border rounded">
-        <h4>${upgrade.qty} ${upgrade.name}s called </h4>
+        <h5>${upgrade.qty} ${upgrade.name}s called </h5>
         <div class="d-flex justify-content-end">
         <button class="btn btn-danger" onclick="purchaseAutoUpgrade('${upgrade.name}')">Call a
         ${upgrade.name} 🪵 ${upgrade.price}</button>
