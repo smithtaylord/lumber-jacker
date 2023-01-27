@@ -68,8 +68,18 @@ function purchaseClickUpgrade(name) {
         purchasedClickUpgrade.qty++
         purchasedClickUpgrade.price += (purchasedClickUpgrade.multiplier * purchasedClickUpgrade.qty)
     } else {
-        window.alert('You need more 🪵! Get back to choppin!!')
+        window.Swal.fire({
+            title: 'You need more 🪵!',
+            text: 'Get back to choppin!!',
+            imageUrl: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0516b753-4518-4daf-a659-5df6b89effbc/d6i5ttd-69f269d5-9074-4219-8ec8-f74bff3f1b71.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA1MTZiNzUzLTQ1MTgtNGRhZi1hNjU5LTVkZjZiODllZmZiY1wvZDZpNXR0ZC02OWYyNjlkNS05MDc0LTQyMTktOGVjOC1mNzRiZmYzZjFiNzEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.nrtAqV_oyv1RdpOIk3Uk5WhMqlvmT7ISiGF9OHVg5Ps',
+            imageWidth: 300,
+            imageHeight: 400,
+            imageAlt: 'Lumber Jack Img',
+        })
     }
+    // } else {
+    //     window.alert('You need more 🪵! Get back to choppin!!')
+    // }
     updateLogs()
     updateClickUpgradeAmount()
     drawClickUpgradeButtons()
@@ -108,8 +118,19 @@ function purchaseAutoUpgrade(name) {
         purchasedAutoUpgrade.isPurchased = true
         autoChopAmount += purchasedAutoUpgrade.multiplier
     } else {
-        window.alert('You need more 🪵! Get back to choppin!!')
+        window.Swal.fire({
+            title: 'You need more 🪵!',
+            text: 'Get back to choppin!!',
+            imageUrl: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0516b753-4518-4daf-a659-5df6b89effbc/d6i5ttd-69f269d5-9074-4219-8ec8-f74bff3f1b71.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA1MTZiNzUzLTQ1MTgtNGRhZi1hNjU5LTVkZjZiODllZmZiY1wvZDZpNXR0ZC02OWYyNjlkNS05MDc0LTQyMTktOGVjOC1mNzRiZmYzZjFiNzEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.nrtAqV_oyv1RdpOIk3Uk5WhMqlvmT7ISiGF9OHVg5Ps',
+            imageWidth: 300,
+            imageHeight: 400,
+            imageAlt: 'Lumber Jack Img',
+        })
     }
+
+    // } else {
+    //     window.alert('You need more 🪵! Get back to choppin!!')
+    // }
     console.log(purchasedAutoUpgrade);
     updateAutoUpgradeAmount()
     drawAutoUpgradeButtons()
@@ -158,4 +179,9 @@ drawClickUpgradeButtons()
 drawAutoUpgradeButtons()
 setInterval(autoCollectLogs, 3000)
 // #endregion
+
+
+
+
+
 
