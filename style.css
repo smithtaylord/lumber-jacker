@@ -26,7 +26,8 @@ header {
 }
 
 .bg-plaid {
-    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20220509/pngtree-lumberjack-buffalo-plaid-seamless-pattern-image_1203108.jpg');
+    /* background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20220509/pngtree-lumberjack-buffalo-plaid-seamless-pattern-image_1203108.jpg'); */
+    background-image: url('https://enpiar.com/talks/nyr-2020/img/gone-plaid.gif');
     background-size: cover;
 }
 

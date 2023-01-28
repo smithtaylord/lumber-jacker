@@ -1,5 +1,5 @@
 // #region Variables
-let logs = 1000
+let logs = 0
 let clickMultiplier = 1
 let autoChopAmount = 0
 
