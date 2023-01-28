@@ -6,12 +6,14 @@ let autoChopAmount = 0
 let clickUpgrades = [
     {
         name: 'Axe',
+        mdiIcon: 'mdi mdi-axe',
         price: 1,
         qty: 0,
         multiplier: 1
     },
     {
         name: 'Super Axe',
+        mdiIcon: 'mdi mdi-axe-battle',
         price: 5,
         qty: 0,
         multiplier: 5
@@ -20,6 +22,7 @@ let clickUpgrades = [
 let autoUpgrades = [
     {
         name: 'Lumberjack',
+        mdiIcon: 'mdi mdi-human-greeting',
         price: 10,
         qty: 1,
         multiplier: 3,
@@ -27,12 +30,21 @@ let autoUpgrades = [
     },
     {
         name: 'Crew',
+        mdiIcon: 'mdi mdi-human-queue',
         price: 100,
         qty: 1,
         multiplier: 10,
         isPurchased: false
     }
 ]
+
+let pancakePowerUp = {
+    price: 1000,
+    qty: 1,
+    multiplier: 2,
+    timer: 0,
+
+}
 // #endregion
 
 // #region create functions
@@ -60,6 +72,8 @@ function updateLogs() {
 //     updateClickUpgradeAmount()
 // }
 
+
+// SECTION Purchase Functions
 function purchaseClickUpgrade(name) {
     let purchasedClickUpgrade = clickUpgrades.find(upgrade => upgrade.name == name)
     if (logs >= purchasedClickUpgrade.price) {
@@ -84,30 +98,6 @@ function purchaseClickUpgrade(name) {
     updateLogs()
     updateClickUpgradeAmount()
     drawClickUpgradeButtons()
-}
-
-function updateClickUpgradeAmount() {
-    let clickUpgradeElem = document.getElementById('click-upgrade-amount')
-    clickUpgradeElem.innerText = clickMultiplier
-
-}
-function drawClickUpgradeButtons() {
-    let updateButtonElem = document.getElementById('click-upgrade-buttons')
-    let template = ''
-    clickUpgrades.forEach(upgrade => {
-        template += `
-        <div class="d-flex justify-content-around py-3 my-3 border rounded">
-        <h5>${upgrade.qty} ${upgrade.name}s purchased </h5>
-        <div class="d-flex justify-content-end">
-        <button class="btn btn-warning" onclick="purchaseClickUpgrade('${upgrade.name}')">Buy
-        ${upgrade.name} 🪵${upgrade.price}</button>
-        <h4>+${upgrade.multiplier}</h4>
-        </div>
-        </div>
-
-    `
-    });
-    updateButtonElem.innerHTML = template
 }
 
 function purchaseAutoUpgrade(name) {
@@ -138,15 +128,36 @@ function purchaseAutoUpgrade(name) {
     updateLogs()
 }
 
-function autoCollectLogs() {
-    // console.log(`This is working ${autoChopAmount} added total Logs ${logs}`);
-    logs += autoChopAmount
-    updateLogs()
-}
 
+// SECTION Update Amounts Function
+function updateClickUpgradeAmount() {
+    let clickUpgradeElem = document.getElementById('click-upgrade-amount')
+    clickUpgradeElem.innerText = clickMultiplier
+
+}
 function updateAutoUpgradeAmount() {
     let autoUpgradeElem = document.getElementById('auto-upgrade-amount')
     autoUpgradeElem.innerText = autoChopAmount
+}
+
+// SECTION Draw Functions
+function drawClickUpgradeButtons() {
+    let updateButtonElem = document.getElementById('click-upgrade-buttons')
+    let template = ''
+    clickUpgrades.forEach(upgrade => {
+        template += `
+        <div class="d-flex justify-content-around py-3 my-3 border rounded">
+        <h5>${upgrade.qty} ${upgrade.name}s purchased </h5>
+        <div class="d-flex justify-content-end">
+        <button class="btn btn-warning" onclick="purchaseClickUpgrade('${upgrade.name}')">Buy 
+        ${upgrade.name} <i class="${upgrade.mdiIcon}"></i>🪵${upgrade.price}</button>
+        <h4>+${upgrade.multiplier}</h4>
+        </div>
+        </div>
+
+    `
+    });
+    updateButtonElem.innerHTML = template
 }
 
 function drawAutoUpgradeButtons() {
@@ -157,8 +168,8 @@ function drawAutoUpgradeButtons() {
         <div class="d-flex justify-content-around py-3 my-3 border rounded">
         <h5>${upgrade.qty} ${upgrade.name}s called </h5>
         <div class="d-flex justify-content-end">
-        <button class="btn btn-danger" onclick="purchaseAutoUpgrade('${upgrade.name}')">Call a
-        ${upgrade.name} 🪵 ${upgrade.price}</button>
+        <button class="btn btn-danger" onclick="purchaseAutoUpgrade('${upgrade.name}')">Call a 
+        ${upgrade.name} <i class="${upgrade.mdiIcon}"></i> 🪵 ${upgrade.price}</button>
         <h4>+${upgrade.multiplier}</h4>
         </div>
         </div>
@@ -169,6 +180,13 @@ function drawAutoUpgradeButtons() {
 
 }
 
+
+// SECTION Auto Collect Functions
+function autoCollectLogs() {
+    // console.log(`This is working ${autoChopAmount} added total Logs ${logs}`);
+    logs += autoChopAmount
+    updateLogs()
+}
 
 // #endregion
 
