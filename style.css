@@ -1,14 +1,11 @@
 /* Root */
 
 /* Element Selectors */
-* {}
 
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url('https://images.unsplash.com/photo-1604009506606-fd4989d50e6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
-    background-size: cover;
 }
 
 main {
@@ -23,6 +20,16 @@ header {
 
 
 /* Class Selectors */
+.bg-main {
+    background-image: url('https://images.unsplash.com/photo-1604009506606-fd4989d50e6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+    background-size: cover;
+}
+
+.bg-plaid {
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20220509/pngtree-lumberjack-buffalo-plaid-seamless-pattern-image_1203108.jpg');
+    background-size: cover;
+}
+
 
 .tree-img {
     width: auto;
@@ -38,6 +45,54 @@ header {
 }
 
 .pancake {
-    font-size: 60pt;
+    background-color: #26513d79;
+}
+
+.pancake-emoji {
+
     cursor: grab;
+}
+
+.pancake-size-0 {
+    font-size: 50pt;
+}
+
+.pancake-size-1 {
+    font-size: 55pt;
+}
+
+.pancake-size-2 {
+    font-size: 60pt;
+}
+
+.pancake-size-3 {
+    font-size: 65pt;
+}
+
+.pancake-size-4 {
+    font-size: 70pt;
+}
+
+.pancake-size-5 {
+    font-size: 75pt;
+}
+
+.pancake-size-6 {
+    font-size: 80pt;
+}
+
+.pancake-size-7 {
+    font-size: 85pt;
+}
+
+.pancake-size-8 {
+    font-size: 90pt;
+}
+
+.pancake-size-9 {
+    font-size: 95pt;
+}
+
+.pancake-size-10 {
+    font-size: 100pt;
 }

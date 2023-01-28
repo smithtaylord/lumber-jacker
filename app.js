@@ -1,5 +1,5 @@
 // #region Variables
-let logs = 0
+let logs = 1000
 let clickMultiplier = 1
 let autoChopAmount = 0
 
@@ -129,6 +129,32 @@ function purchaseAutoUpgrade(name) {
 }
 
 
+
+function purchasePancakePowerUp() {
+    console.log('🥞');
+    if (logs >= pancakePowerUp.price) {
+        logs -= pancakePowerUp.price
+        pancakePowerUp.qty++
+        pancakePowerUp.price *= pancakePowerUp.multiplier
+        pancakePowerUp.timer = 10
+        clickMultiplier *= 2
+        changeBackgroundToPlaid()
+    } else {
+        window.Swal.fire({
+            title: 'You need more 🪵!',
+            text: 'Get back to choppin!!',
+            imageUrl: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0516b753-4518-4daf-a659-5df6b89effbc/d6i5ttd-69f269d5-9074-4219-8ec8-f74bff3f1b71.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA1MTZiNzUzLTQ1MTgtNGRhZi1hNjU5LTVkZjZiODllZmZiY1wvZDZpNXR0ZC02OWYyNjlkNS05MDc0LTQyMTktOGVjOC1mNzRiZmYzZjFiNzEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.nrtAqV_oyv1RdpOIk3Uk5WhMqlvmT7ISiGF9OHVg5Ps',
+            imageWidth: 300,
+            imageHeight: 400,
+            imageAlt: 'Lumber Jack Img',
+        })
+    }
+    drawPancake()
+    pancakeTimer()
+    updateLogs()
+}
+
+
 // SECTION Update Amounts Function
 function updateClickUpgradeAmount() {
     let clickUpgradeElem = document.getElementById('click-upgrade-amount')
@@ -180,6 +206,48 @@ function drawAutoUpgradeButtons() {
 
 }
 
+function drawPancake() {
+    let pancakeElem = document.getElementById('pancake')
+    pancakeElem.innerHTML = `
+<h1 class="pancake-emoji pancake-size-${pancakePowerUp.timer}" onclick="purchasePancakePowerUp()">🥞</h1>
+<h6>🪵 ${pancakePowerUp.price}</h6>
+<small>(2x clicks for 10 seconds)</small>
+`
+}
+
+
+
+function pancakeTimer() {
+    if (pancakePowerUp.timer == 1) {
+        clickMultiplier /= 2
+        pancakePowerUp.timer--
+        changeBackgroundToMain()
+    } else if (pancakePowerUp.timer > 1) {
+        pancakePowerUp.timer--
+        console.log(pancakePowerUp.timer);
+        console.log(clickMultiplier);
+    }
+    updateClickUpgradeAmount()
+    drawPancake()
+}
+
+function changeBackgroundToPlaid() {
+    let bgElem = document.getElementById('main')
+    bgElem.classList.remove('bg-main')
+    bgElem.classList.add('bg-plaid')
+
+    let upgradeElem = document.getElementById('upgrades')
+    upgradeElem.classList.add('d-none')
+
+}
+function changeBackgroundToMain() {
+    let elem = document.getElementById('main')
+    elem.classList.remove('bg-plaid')
+    elem.classList.add('bg-main')
+
+    let upgradeElem = document.getElementById('upgrades')
+    upgradeElem.classList.remove('d-none')
+}
 
 // SECTION Auto Collect Functions
 function autoCollectLogs() {
@@ -196,7 +264,9 @@ updateAutoUpgradeAmount()
 updateClickUpgradeAmount()
 drawClickUpgradeButtons()
 drawAutoUpgradeButtons()
+drawPancake()
 setInterval(autoCollectLogs, 3000)
+setInterval(pancakeTimer, 1000)
 // #endregion
 
 
