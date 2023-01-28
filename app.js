@@ -24,7 +24,7 @@ let autoUpgrades = [
         name: 'Lumberjack',
         mdiIcon: 'mdi mdi-human-greeting',
         price: 10,
-        qty: 1,
+        qty: 0,
         multiplier: 3,
         isPurchased: false
     },
@@ -32,7 +32,7 @@ let autoUpgrades = [
         name: 'Crew',
         mdiIcon: 'mdi mdi-human-queue',
         price: 100,
-        qty: 1,
+        qty: 0,
         multiplier: 10,
         isPurchased: false
     }

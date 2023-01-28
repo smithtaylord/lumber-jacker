@@ -1,12 +1,14 @@
 /* Root */
 
 /* Element Selectors */
+* {}
+
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background-image: url('https://images.unsplash.com/photo-1604009506606-fd4989d50e6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
-    background-position: cover;
+    background-size: cover;
 }
 
 main {
@@ -14,7 +16,8 @@ main {
 }
 
 header {
-    background-color: #312010;
+    background-color: #198754;
+    font-family: 'Abril Fatface', cursive;
 }
 
 
