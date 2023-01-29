@@ -129,7 +129,6 @@ function purchaseAutoUpgrade(name) {
 }
 
 
-
 function purchasePancakePowerUp() {
     console.log('🥞');
     if (logs >= pancakePowerUp.price) {
@@ -214,7 +213,6 @@ function drawPancake() {
 <small>(2x clicks for 10 seconds)</small>
 `
 }
-
 
 
 function pancakeTimer() {
