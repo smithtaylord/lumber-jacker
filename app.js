@@ -54,7 +54,7 @@ let pancakePowerUp = {
 
 function chopTree() {
     logs += clickMultiplier
-    console.log(logs);
+    // console.log(logs);
     updateLogs()
 }
 
@@ -126,7 +126,7 @@ function purchaseAutoUpgrade(name) {
     // } else {
     //     window.alert('You need more 🪵! Get back to choppin!!')
     // }
-    console.log(purchasedAutoUpgrade);
+    // console.log(purchasedAutoUpgrade);
     updateAutoUpgradeAmount()
     drawAutoUpgradeButtons()
     updateLogs()
@@ -134,7 +134,7 @@ function purchaseAutoUpgrade(name) {
 
 
 function purchasePancakePowerUp() {
-    console.log('🥞');
+    // console.log('🥞');
     if (logs >= pancakePowerUp.price && all4UpgradesPurchased == true) {
         logs -= pancakePowerUp.price
         pancakePowerUp.qty++
@@ -222,12 +222,14 @@ function drawPancake() {
 <h1 class="pancake-emoji pancake-size-${pancakePowerUp.timer}" id="pancake-emoji" onclick="purchasePancakePowerUp()"></h1>
 <h6>🪵 ${pancakePowerUp.price}</h6>
 <small>(2x clicks for 10 seconds)</small>
-<div><small>
+<div class="d-none d-md-block"><small>
 <em>Must Purchase All Upgrades to Unlock</em>
 </small>
 </div>
 `
 }
+
+// SECTION Other Functions
 
 function pancakeTimer() {
     if (pancakePowerUp.timer == 1) {
