@@ -97,3 +97,10 @@ header {
 .pancake-size-10 {
     font-size: 100pt;
 }
+
+@media screen and (max-width: 786px) {
+    .tree-img {
+        width: auto;
+        height: 30vh;
+    }
+}
