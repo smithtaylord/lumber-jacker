@@ -3,6 +3,7 @@ let logs = 0
 let clickMultiplier = 1
 let autoChopAmount = 0
 let all4UpgradesPurchased = false
+let pancakePowerUpMessage = true
 
 let clickUpgrades = [
     {
@@ -40,7 +41,6 @@ let autoUpgrades = [
         isPurchased: false
     }
 ]
-
 let pancakePowerUp = {
     price: 1000,
     qty: 1,
@@ -63,6 +63,7 @@ function updateLogs() {
     logElem.innerText = logs
 
 }
+
 // NOTE Obsolete function, refactored for reusability 
 // function purchaseAxe() {
 //     if (logs >= clickUpgrades[0].price) {
@@ -74,7 +75,6 @@ function updateLogs() {
 //     updateLogs()
 //     updateClickUpgradeAmount()
 // }
-
 
 // SECTION Purchase Functions
 function purchaseClickUpgrade(name) {
@@ -132,7 +132,6 @@ function purchaseAutoUpgrade(name) {
     updateLogs()
 }
 
-
 function purchasePancakePowerUp() {
     // console.log('🥞');
     if (logs >= pancakePowerUp.price && all4UpgradesPurchased == true) {
@@ -164,13 +163,13 @@ function purchasePancakePowerUp() {
     updateLogs()
 }
 
-
 // SECTION Update Amounts Function
 function updateClickUpgradeAmount() {
     let clickUpgradeElem = document.getElementById('click-upgrade-amount')
     clickUpgradeElem.innerText = clickMultiplier
 
 }
+
 function updateAutoUpgradeAmount() {
     let autoUpgradeElem = document.getElementById('auto-upgrade-amount')
     autoUpgradeElem.innerText = autoChopAmount
@@ -230,7 +229,6 @@ function drawPancake() {
 }
 
 // SECTION Other Functions
-
 function pancakeTimer() {
     if (pancakePowerUp.timer == 1) {
         clickMultiplier /= 2
@@ -247,13 +245,29 @@ function pancakeTimer() {
 }
 
 function pancakeChecker() {
-    if ((clickUpgrades.every(upgrade => upgrade.isPurchased) && (autoUpgrades.every(upgrade => upgrade.isPurchased)))) {
+    if ((clickUpgrades.every(upgrade => upgrade.isPurchased)) && (autoUpgrades.every(upgrade => upgrade.isPurchased)) && pancakePowerUpMessage == true) {
         let pancakeElem = document.getElementById('pancake-emoji')
         pancakeElem.classList.remove('mdi-lock')
         pancakeElem.classList.remove('mdi')
         pancakeElem.innerText = '🥞'
         all4UpgradesPurchased = true
-    } else {
+        pancakePowerUpMessage = false
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'You Unlocked The Pancake Powerup! 2X 🪵 for 10 seconds',
+            showConfirmButton: false,
+            timer: 3000
+        })
+    } else if ((clickUpgrades.every(upgrade => upgrade.isPurchased)) && (autoUpgrades.every(upgrade => upgrade.isPurchased)) && pancakePowerUpMessage == false) {
+        let pancakeElem = document.getElementById('pancake-emoji')
+        pancakeElem.classList.remove('mdi-lock')
+        pancakeElem.classList.remove('mdi')
+        pancakeElem.innerText = '🥞'
+        all4UpgradesPurchased = true
+        pancakePowerUpMessage = false
+    }
+    else {
         let pancakeElem = document.getElementById('pancake-emoji')
         pancakeElem.classList.add('mdi-lock')
         pancakeElem.classList.add('mdi')
@@ -270,6 +284,7 @@ function changeBackgroundToPlaid() {
     upgradeElem.classList.add('d-none')
 
 }
+
 function changeBackgroundToMain() {
     let elem = document.getElementById('main')
     elem.classList.remove('bg-plaid')
