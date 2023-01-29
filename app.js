@@ -172,11 +172,11 @@ function drawClickUpgradeButtons() {
     let template = ''
     clickUpgrades.forEach(upgrade => {
         template += `
-        <div class="d-flex justify-content-around py-3 my-3 border rounded">
-        <h5>${upgrade.qty} ${upgrade.name}s purchased </h5>
+        <div class="d-flex justify-content-around py-1 py-md-3 my-1 my-md-3 border rounded">
+        <h5 class="d-none d-md-block">${upgrade.qty} ${upgrade.name}s purchased </h5>
         <div class="d-flex justify-content-end">
-        <button class="btn btn-warning" onclick="purchaseClickUpgrade('${upgrade.name}')">Buy 
-        ${upgrade.name} <i class="${upgrade.mdiIcon}"></i>🪵${upgrade.price}</button>
+        <button class="btn btn-warning" onclick="purchaseClickUpgrade('${upgrade.name}')"><span class="d-none d-md-block">Buy 
+        ${upgrade.name}</span> <i class="${upgrade.mdiIcon}"></i>🪵${upgrade.price}</button>
         <h4>+${upgrade.multiplier}</h4>
         </div>
         </div>
@@ -191,11 +191,11 @@ function drawAutoUpgradeButtons() {
     let template = ''
     autoUpgrades.forEach(upgrade => {
         template += `
-        <div class="d-flex justify-content-around py-3 my-3 border rounded">
-        <h5>${upgrade.qty} ${upgrade.name}s called </h5>
+        <div class="d-flex justify-content-around py-1 py-md-3 my-1 my-md-3 border rounded">
+        <h5 class="d-none d-md-block">${upgrade.qty} ${upgrade.name}s called </h5>
         <div class="d-flex justify-content-end">
-        <button class="btn btn-danger" onclick="purchaseAutoUpgrade('${upgrade.name}')">Call a 
-        ${upgrade.name} <i class="${upgrade.mdiIcon}"></i> 🪵 ${upgrade.price}</button>
+        <button class="btn btn-danger" onclick="purchaseAutoUpgrade('${upgrade.name}')"><span class="d-none d-md-block">Buy 
+        ${upgrade.name}</span><i class="${upgrade.mdiIcon}"></i> 🪵 ${upgrade.price}</button>
         <h4>+${upgrade.multiplier}</h4>
         </div>
         </div>
